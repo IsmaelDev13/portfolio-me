@@ -3,7 +3,7 @@ import React from "react";
 
 export const Header = () => {
   return (
-    <header className="flex justify-between  p-5 max-w-7xl mx-auto font-['Work Sans'] text-[18px]">
+    <header className="flex justify-between  p-5 md:max-w-7xl mx-auto font-['Work Sans'] text-[18px]">
       <div className="flex items-center space-x-5">
         <Link href="/">
           <img
