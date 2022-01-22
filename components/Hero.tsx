@@ -1,8 +1,32 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
+import React, { useRef, useState } from "react";
 import SvgHero from "../heroComponents/Hero";
 
 export const Hero = () => {
+  const [email, setEmail] = useState<string>("");
+  const inputRef = useRef<any>(null);
+  console.log(inputRef.current.value);
+
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+    if (inputRef.current.value) {
+      fetch("/api/new-message", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: inputRef.current.value,
+        }),
+      })
+        .then(() => {
+          setEmail("");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
   return (
     <section className="flex items-center justify-evenly md:max-w-6xl md:mx-auto mt-28">
       <div className="flex flex-col">
@@ -27,6 +51,26 @@ export const Hero = () => {
           className="hover:stroke-2 hover:stroke-[#0F97B8] transition-transform duration-200 ease-in-out"
         />
       </div>
+      <form onSubmit={sendEmail}>
+        <label>
+          <span className="hidden md:inline text-gray-700">
+            Know More about my process
+          </span>
+          <input
+            ref={inputRef}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className="shadow border border-[#0F97B8] rounded text-lg py-4 px-3 form-textarea mt-1 block w-full outline-none"
+            placeholder="Type your Email Address"
+          />
+        </label>
+        <input
+          type="submit"
+          className="bg-[#0F97B8] text-white p-2 hover:shadow cursor-pointer"
+          value="Sure Why Not"
+        />
+      </form>
     </section>
   );
 };

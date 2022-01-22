@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import ArrowUpIcon from "@mui/icons-material/ArrowUpward";
 
 interface IFormInput {
   name: string;
@@ -17,7 +18,7 @@ function Contact() {
   return (
     <div
       id="contact"
-      className="max-w-7xl mx-auto mt-28 rounded-md shadow-lg shadow-blue-100 bg-white lg:p-20"
+      className="relative max-w-7xl mx-auto mt-28 rounded-md shadow-lg shadow-blue-100 bg-white lg:p-20"
     >
       {/* Left Part */}
       <div className="pt-10 pl-6">
@@ -97,6 +98,12 @@ function Contact() {
           </form>
         </div>
       </div>
+      <a
+        href="#"
+        className="absolute transition transform duration-200 ease-in-out rounded-full   -bottom-4 bg-[#eff7fa] hover:translate-y-2 hover:bg-blue-100 right-1/2 bg p-4"
+      >
+        <ArrowUpIcon />
+      </a>
     </div>
   );
 }

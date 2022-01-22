@@ -1,26 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Graph, Notes, Web } from "../heroComponents";
-import gsap from "gsap";
 
 export const Banner = () => {
-  const graphRef = useRef<any>(null);
-
-  // useEffect(() => {
-  //   gsap.to(graphRef.current, { rotation: "+=360" });
-  // });
   return (
     <div
       id="about"
       className="max-w-7xl mx-auto mt-28 rounded-md shadow-lg shadow-blue-100 bg-white md:p-20"
     >
       {/* Who Am I */}
-      <div className="flex flex-col ">
+      <div className="flex flex-col  ">
         <h1 className="font-bold pl-8 pt-20 stroke-4 mb-4 text-2xl  md:text-3xl uppercase leading-4 text-[#0F97B8] tracking-widest transform scale-y-90 relative select-none">
           Who Am I?
         </h1>
-        <div>
+        <div className="md:flex md:flex-row items-center">
           <img
             className="h-96 my-10 mx-auto w-full object-contain"
             src="/tanjiro.jpg"
