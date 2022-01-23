@@ -14,14 +14,21 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
   });
 
   await doc.loadInfo();
-  await doc.updateProperties({ title: "Portfolio Docs" });
+  // await doc.updateProperties({ title: "Portfolio Docs" });
 
   // create a sheet and set the header row
-  // const sheet = await doc.addSheet({ headerValues: ["email"] });
   const sheet = doc.sheetsById[1169980677];
-  const portRow = await sheet.addRow({
-    email: request.body.email,
-  });
+
+  // const sheet = await doc.addSheet({
+  //   headerValues: ["name", "email", "comment"],
+  // });
+  console.log(sheet);
+  const portRow = await sheet.addRows([
+    { name: request.body.name },
+    { email: request.body.email },
+    { comment: request.body.comment },
+  ]);
+  console.log(portRow);
 
   const rows = await sheet.getRows(); // can pass in { limit, offset }
   return response.status(201).send("OK");

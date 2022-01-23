@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import ArrowUpIcon from "@mui/icons-material/ArrowUpward";
 
@@ -10,11 +10,34 @@ interface IFormInput {
 }
 
 function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  // const nameRef = useRef<any>(null);
+  // const emailRef = useRef<any>(null);
+  // const commentRef = useRef<any>(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = ({ name, email, comment }) => {
+    fetch("/api/submit-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, comment }),
+    })
+      .then(() => {
+        // console.log(data);
+        console.log(name);
+        setSubmitted(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setSubmitted(false);
+      });
+  };
   return (
     <div
       id="contact"
@@ -47,10 +70,14 @@ function Contact() {
           <h1 className="font-sans drop-shadow-lg text-2xl font-medium pl-5">
             I'd love to hear from you
           </h1>
-          <form className="flex flex-col p-5 ">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col p-5 "
+          >
             <label className="block mb-5">
               <span className="hidden md:inline text-gray-700">Name</span>
               <input
+                // ref={nameRef}
                 {...register("name", { required: true })}
                 className="shadow border border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none text-lg"
                 placeholder="Name"
@@ -60,6 +87,7 @@ function Contact() {
             <label className="block mb-5">
               <span className="hidden md:inline text-gray-700">Email</span>
               <input
+                // ref={emailRef}
                 {...register("email", { required: true })}
                 className="shadow border text-lg border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none"
                 placeholder="Email Address"
@@ -69,6 +97,7 @@ function Contact() {
             <label className="block mb-5">
               <span className="hidden md:inline text-gray-700">Message</span>
               <textarea
+                // ref={commentRef}
                 {...register("comment", { required: true })}
                 className="shadow border border-[#0F97B8] rounded text-lg py-4 px-3 form-textarea mt-1 block w-full outline-none"
                 placeholder="Write your message..."
@@ -93,14 +122,14 @@ function Contact() {
             <input
               type="submit"
               value="Send Message"
-              className="shadow bg-[#0F97B8] w-1/2 md:w-full text-lg mx-auto transition transform duration-200 ease-in-out hover:shadow-xl focus:shadow-outline focus:outline-none text-white font-semibold py-4 drop-shadow-md rounded-full uppercase cursor-pointer"
+              className="shadow bg-[#0F97B8] w-1/2 md:w-full text-lg mx-auto transition transform duration-200 ease-in-out hover:shadow-xl focus:shadow-outline focus:outline-none text-white font-semibold py-4 drop-shadow-md rounded-full uppercase cursor-pointer mb-20"
             />
           </form>
         </div>
       </div>
       <a
         href="#"
-        className="absolute transition transform duration-200 ease-in-out rounded-full   -bottom-4 bg-[#eff7fa] hover:translate-y-2 hover:bg-blue-100 right-1/2 bg p-4"
+        className="absolute transition transform duration-200 ease-in-out rounded-full -bottom-6  md:-bottom-4 bg-[#eff7fa] hover:translate-y-2 right-[43%] md:right-1/2  hover:bg-blue-100  p-4"
       >
         <ArrowUpIcon />
       </a>

@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useState } from "react";
 import SvgHero from "../heroComponents/Hero";
+import PaperIcon from "@mui/icons-material/Send";
 
 export const Hero = () => {
   const [email, setEmail] = useState<string>("");
   const inputRef = useRef<any>(null);
-  console.log(inputRef.current.value);
+  // console.log(inputRef.current.value);
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -42,6 +43,33 @@ export const Hero = () => {
             alt=""
           />
         </h1>
+        <form onSubmit={sendEmail} className="flex items-center mx-auto">
+          <label>
+            <span className="md:text-lg md:inline text-[#0F97B8]">
+              Know More about my process...
+            </span>
+            <div className="flex items-center">
+              <input
+                ref={inputRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                className="shadow border h-15 md:mb-7 border-[#0F97B8] rounded-l-md rounded-r drop-shadow-lg text-lg py-4 px-3 w-full outline-none"
+                placeholder="Type your Email Address"
+              />
+              <span onClick={sendEmail}>
+                <PaperIcon className="h-14 md:hidden transition-all transform duration-200 ease-in-out w-14 active:scale-105  bg-[#0F97B8] text-white p-3 rounded-r-lg " />
+              </span>
+            </div>
+          </label>
+
+          <input
+            type="submit"
+            className="bg-[#0F97B8] h-15 hidden md:inline uppercase text-lg  text-white py-4 px-3 
+            rounded-r-md hover:shadow cursor-pointer shadow-md"
+            value="Sure Why Not!"
+          />
+        </form>
       </div>
 
       <div className="hidden md:inline-flex ">
@@ -51,26 +79,6 @@ export const Hero = () => {
           className="hover:stroke-2 hover:stroke-[#0F97B8] transition-transform duration-200 ease-in-out"
         />
       </div>
-      <form onSubmit={sendEmail}>
-        <label>
-          <span className="hidden md:inline text-gray-700">
-            Know More about my process
-          </span>
-          <input
-            ref={inputRef}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            type="email"
-            className="shadow border border-[#0F97B8] rounded text-lg py-4 px-3 form-textarea mt-1 block w-full outline-none"
-            placeholder="Type your Email Address"
-          />
-        </label>
-        <input
-          type="submit"
-          className="bg-[#0F97B8] text-white p-2 hover:shadow cursor-pointer"
-          value="Sure Why Not"
-        />
-      </form>
     </section>
   );
 };
