@@ -15,9 +15,9 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
 
   await doc.loadInfo();
   // await doc.updateProperties({ title: "Portfolio Docs" });
-
   // create a sheet and set the header row
-  const sheet = doc.sheetsById[1169980677];
+  const sheetID = process.env.SPREADSHEET_ID!;
+  const sheet = doc.sheetsById[sheetID];
 
   // const sheet = await doc.addSheet({
   //   headerValues: ["name", "email", "comment"],

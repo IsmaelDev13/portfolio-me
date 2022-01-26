@@ -11,7 +11,7 @@ import { Projects } from "../components/Projects";
 
 export default function Home() {
   return (
-    <div className=" bg-[#eff7fa]  ">
+    <div className=" bg-[#eff7fa]">
       <Head>
         <title>ISMAEL DIAZ | Front-End Developer</title>
         <link rel="icon" href="/favicon.ico" />

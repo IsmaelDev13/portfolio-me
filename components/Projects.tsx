@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import CodeIcon from "@mui/icons-material/Code";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import PersonalProjects from "./PersonalProjects";
 import MorePersonalProjects from "./MorePersonalProjects";
+import { PersonalProjects } from "./PersonalProjects";
+import { motion } from "framer-motion";
+import { errorAnim, pageZoom } from "../util";
 
 export const Projects = () => {
   const [showProjects, setShowProjects] = useState(true);
@@ -39,7 +41,43 @@ export const Projects = () => {
         </div>
       </div>
       <div>
-        {showProjects ? <PersonalProjects /> : <MorePersonalProjects />}
+        {showProjects ? (
+          <motion.div
+            initial="initial"
+            animate="out"
+            exit="in"
+            variants={pageZoom}
+          >
+            <PersonalProjects
+              title="MetaShop"
+              description=" A ecommerse with a modern UI, complete functionality including Payment Processing(Stripe API) and full backend with MongoDB."
+              tech="React, MongoDB, Postman, Stripe API, TailwindCSS, Heroku, Github Actions."
+              image="/metashop.jpg"
+            />
+            <PersonalProjects
+              title="Netflix"
+              description=" A compact single page application to browse and search for your
+              favorite Movies and TV Shows. API provided by themoviedb.org."
+              tech="React, Firebase, CSS"
+              image="/metashop.jpg"
+            />
+            <PersonalProjects
+              title="Spotify"
+              description=" A Spotify - based Web Player, built with ReactJs, which uses the offical Spotify API to obtain user's details, playlists and control play state."
+              tech="ReactJS, SpotifyAPI, Recoil"
+              image="/metashop.jpg"
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={errorAnim}
+          >
+            <MorePersonalProjects />
+          </motion.div>
+        )}
       </div>
     </div>
   );

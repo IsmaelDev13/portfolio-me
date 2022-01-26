@@ -1,14 +1,46 @@
+import { SpeedDial, SpeedDialAction } from "@mui/material";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import WorkIcon from "@mui/icons-material/Work";
+import ContactIcon from "@mui/icons-material/ConnectWithoutContact";
+import { useRouter } from "next/router";
 
 export const Header = () => {
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const [windowSize, setWindowSize] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth <= 600) {
+      setWindowSize(true);
+    } else {
+      setWindowSize(false);
+    }
+    //   return () =>
+    //     window.innerWidth <= 600 ? setWindowSize(true) : setWindowSize(false);
+  }, []);
+  const about = () => {
+    router.push("#about");
+  };
+  const work = () => {
+    router.push("#work");
+  };
+  const contact = () => {
+    router.push("#contact");
+  };
+  const actions = [
+    { icon: <PersonIcon />, name: "About", func: about },
+    { icon: <WorkIcon />, name: "Work", func: work },
+    { icon: <ContactIcon />, name: "Contact", func: contact },
+  ];
   return (
-    <header className="flex justify-between  p-5 md:max-w-7xl mx-auto font-['Work Sans'] text-[18px]">
+    <header className="flex items-center justify-between  p-5 md:max-w-7xl mx-auto font-['Work Sans'] text-[18px]">
       <div className="flex items-center space-x-5">
         <Link href="/">
           <img
-            className="w-20 md:w-40 object-contain "
-            src="https://www.apemockups.com/wp-content/uploads/edd/2017/09/medium-logo-black-transparent.png"
+            className="h-32 md:h-40 w-full object-contain "
+            src="/logo.png"
             alt=""
           />
         </Link>
@@ -30,30 +62,30 @@ export const Header = () => {
           </h3>
         </Link>
       </div>
+      <SpeedDial
+        ariaLabel="SpeedDial"
+        className="sm:hidden fixed top-10 right-4 "
+        onClose={() => setOpen(false)}
+        onOpen={() => setOpen(true)}
+        open={open}
+        direction="down"
+        icon={
+          <img
+            src="/android-chrome-512x512.png "
+            className="rounded-full w-full h-[56px]"
+          />
+        }
+      >
+        {actions.map((item) => (
+          <SpeedDialAction
+            key={item.name}
+            icon={item.icon}
+            tooltipTitle={item.name}
+            onClick={item.func}
+            tooltipOpen={windowSize}
+          />
+        ))}
+      </SpeedDial>
     </header>
-    // <header className="flex justify-between p-5 max-w-7xl mx-auto">
-    //   <div className="flex items-center space-x-5">
-    //     <Link href="/">
-    //       <img
-    //         className="w-44 object-contain cursor-pointer"
-    //         src="https://miro.medium.com/max/8978/1*s986xIGqhfsN8U--09_AdA.png"
-    //         alt=""
-    //       />
-    //     </Link>
-    //     <div className="hidden md:inline-flex items-center space-x-5">
-    //       <h3>About</h3>
-    //       <h3>Contact</h3>
-    //       <h3 className="text-white bg-green-600 px-4 py-1 rounded-full">
-    //         Follow
-    //       </h3>
-    //     </div>
-    //   </div>
-    //   <div className="flex items-center space-x-5 text-green-600">
-    //     <h3>Sign In</h3>
-    //     <h3 className="border px-4 py-1 rounded-full border-green-600">
-    //       Get Started
-    //     </h3>
-    //   </div>
-    // </header>
   );
 };

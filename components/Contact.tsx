@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import ArrowUpIcon from "@mui/icons-material/ArrowUpward";
+import { motion } from "framer-motion";
+import { errorAnim } from "../util";
 
 interface IFormInput {
   name: string;
@@ -11,9 +13,6 @@ interface IFormInput {
 
 function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  // const nameRef = useRef<any>(null);
-  // const emailRef = useRef<any>(null);
-  // const commentRef = useRef<any>(null);
 
   const {
     register,
@@ -29,9 +28,12 @@ function Contact() {
       body: JSON.stringify({ name, email, comment }),
     })
       .then(() => {
-        // console.log(data);
-        console.log(name);
+        console.log(`${name}, your message has been sent`);
         setSubmitted(true);
+
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 7500);
       })
       .catch((err) => {
         console.log(err);
@@ -68,63 +70,75 @@ function Contact() {
         {/* Right Part */}
         <div className="w-full md:w-1/2 flex flex-col pt-20 ">
           <h1 className="font-sans drop-shadow-lg text-2xl font-medium pl-5">
-            I'd love to hear from you
+            {!submitted
+              ? "I'd love to hear from you"
+              : "I'm glad we will work together!"}
           </h1>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col p-5 "
-          >
-            <label className="block mb-5">
-              <span className="hidden md:inline text-gray-700">Name</span>
+          {submitted ? (
+            <motion.div
+              initial="initial"
+              animate="in"
+              exit="out"
+              variants={errorAnim}
+              className="flex flex-col rounded border shadow p-10 my-10 bg-[#0F97B8] text-white max-w-2xl mx-auto"
+            >
+              <h3 className="text-center text-2xl font-semibold font-serif">
+                Thank you for submitting your comment!
+              </h3>
+            </motion.div>
+          ) : (
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col p-5 "
+            >
+              <label className="block mb-5">
+                <span className="hidden md:inline text-gray-700">Name</span>
+                <input
+                  {...register("name", { required: true })}
+                  className="shadow border border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none text-lg"
+                  placeholder="Name"
+                  type="text"
+                />
+                {errors.name && (
+                  <span className="text-red-500">- Please enter your name</span>
+                )}
+              </label>
+              <label className="block mb-5">
+                <span className="hidden md:inline text-gray-700">Email</span>
+                <input
+                  {...register("email", { required: true })}
+                  className="shadow border text-lg border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none"
+                  placeholder="Email Address"
+                  type="email"
+                />
+                {errors.email && (
+                  <span className="text-red-500">
+                    - Enter a valid email address
+                  </span>
+                )}
+              </label>
+              <label className="block mb-5">
+                <span className="hidden md:inline text-gray-700">Message</span>
+                <textarea
+                  {...register("comment", { required: true })}
+                  className="shadow border border-[#0F97B8] rounded text-lg py-4 px-3 form-textarea mt-1 block w-full outline-none"
+                  placeholder="Write your message..."
+                  rows={8}
+                />
+                {errors.comment && (
+                  <span className="text-red-500">
+                    - Come on, pour your heart out...
+                  </span>
+                )}
+              </label>
+
               <input
-                // ref={nameRef}
-                {...register("name", { required: true })}
-                className="shadow border border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none text-lg"
-                placeholder="Name"
-                type="text"
+                type="submit"
+                value={`${!submitted ? "Send Message" : "Message Sent"}`}
+                className="shadow bg-[#0F97B8] w-1/2 md:w-full text-lg mx-auto transition transform duration-200 ease-in-out hover:shadow-xl focus:shadow-outline focus:outline-none text-white font-semibold py-4 drop-shadow-md rounded-full uppercase cursor-pointer mb-20"
               />
-            </label>
-            <label className="block mb-5">
-              <span className="hidden md:inline text-gray-700">Email</span>
-              <input
-                // ref={emailRef}
-                {...register("email", { required: true })}
-                className="shadow border text-lg border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none"
-                placeholder="Email Address"
-                type="email"
-              />
-            </label>
-            <label className="block mb-5">
-              <span className="hidden md:inline text-gray-700">Message</span>
-              <textarea
-                // ref={commentRef}
-                {...register("comment", { required: true })}
-                className="shadow border border-[#0F97B8] rounded text-lg py-4 px-3 form-textarea mt-1 block w-full outline-none"
-                placeholder="Write your message..."
-                rows={8}
-              />
-            </label>
-            <div className="flex flex-col p-5">
-              {errors.name && (
-                <span className="text-red-500">- Please enter your name</span>
-              )}
-              {errors.email && (
-                <span className="text-red-500">
-                  - Enter a valid email address
-                </span>
-              )}
-              {errors.comment && (
-                <span className="text-red-500">
-                  - Come on, pour your heart out...
-                </span>
-              )}
-            </div>
-            <input
-              type="submit"
-              value="Send Message"
-              className="shadow bg-[#0F97B8] w-1/2 md:w-full text-lg mx-auto transition transform duration-200 ease-in-out hover:shadow-xl focus:shadow-outline focus:outline-none text-white font-semibold py-4 drop-shadow-md rounded-full uppercase cursor-pointer mb-20"
-            />
-          </form>
+            </form>
+          )}
         </div>
       </div>
       <a
