@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface PersonalProjectsProps {
   title: string;
@@ -37,7 +37,7 @@ export const PersonalProjects: React.FC<PersonalProjectsProps> = ({
         </div>
       </div>
       <div className="mx-4 border-4 rounded-md shadow-md my-5 shadow-[#0F97B8] border-[#0F97B8] ">
-        <img className=" object-contain" src={image} alt="" />
+        <img loading="lazy" className=" object-contain" src={image} alt="" />
       </div>
     </div>
   );

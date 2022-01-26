@@ -1,4 +1,5 @@
-import { SpeedDial, SpeedDialAction } from "@mui/material";
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import PersonIcon from "@mui/icons-material/Person";

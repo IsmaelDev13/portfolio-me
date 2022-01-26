@@ -16,6 +16,7 @@ export const Banner = () => {
         </h1>
         <div className="md:flex md:flex-row items-center">
           <img
+            loading="lazy"
             className="h-96 my-10 mx-auto w-full object-contain"
             src="/tanjiro.jpg"
             alt=""
