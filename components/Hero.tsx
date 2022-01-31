@@ -67,9 +67,10 @@ export const Hero = () => {
                   className="h-15 w-full rounded-l-md rounded-r border border-[#0F97B8] py-4 px-3 text-lg outline-none focus:ring-1 focus:ring-[#0F97B8] md:mb-7"
                   placeholder="Type your Email Address"
                 />
-                <span className="flex md:hidden" onClick={sendEmail}>
-                  <PaperIcon className="h-14 w-14 transform rounded-r-lg bg-[#0F97B8] p-3 text-white transition-all duration-200 ease-in-out active:scale-105" />
-                </span>
+                <PaperIcon
+                  onClick={sendEmail}
+                  className="h-14 w-14 transform rounded-r-lg bg-[#0F97B8] p-3 text-white transition-all duration-200 ease-in-out active:scale-105"
+                />
               </div>
             </label>
 
