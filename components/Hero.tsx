@@ -54,7 +54,7 @@ export const Hero = () => {
         {!submitted ? (
           <form onSubmit={sendEmail} className="ml-6 flex items-center ">
             <label>
-              <span className="text-[#0F97B8] md:inline  md:text-lg">
+              <span className="text-[#0F97B8] sm:inline  md:text-lg">
                 Know More about my process...
               </span>
               <div className="flex items-center">
@@ -68,7 +68,7 @@ export const Hero = () => {
                   placeholder="Type your Email Address"
                 />
                 <span className="flex md:hidden" onClick={sendEmail}>
-                  <PaperIcon className="flex h-14 w-14 transform rounded-r-lg bg-[#0F97B8] p-3 text-white transition-all duration-200 ease-in-out active:scale-105" />
+                  <PaperIcon className="h-14 w-14 transform rounded-r-lg bg-[#0F97B8] p-3 text-white transition-all duration-200 ease-in-out active:scale-105" />
                 </span>
               </div>
             </label>
