@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useState } from "react";
 import SvgHero from "../heroComponents/Hero";
-import PaperIcon from "@mui/icons-material/Send";
+import Send from "@mui/icons-material/Send";
 import { motion } from "framer-motion";
 import { pageZoom } from "../util";
 
@@ -67,9 +67,9 @@ export const Hero = () => {
                   className="h-15 w-full rounded-l-md rounded-r border border-[#0F97B8] py-4 px-3 text-lg outline-none focus:ring-1 focus:ring-[#0F97B8] md:mb-7"
                   placeholder="Type your Email Address"
                 />
-                <PaperIcon
+                <Send
                   onClick={sendEmail}
-                  className="h-14 w-14 transform rounded-r-lg bg-[#0F97B8] p-3 text-white transition-all duration-200 ease-in-out active:scale-105"
+                  className="h-14 w-14 transform rounded-r-lg bg-[#0F97B8] p-3 text-white transition-all duration-200 ease-in-out active:scale-105 md:hidden"
                 />
               </div>
             </label>
