@@ -18,8 +18,6 @@ export const Header = () => {
     } else {
       setWindowSize(false);
     }
-    //   return () =>
-    //     window.innerWidth <= 600 ? setWindowSize(true) : setWindowSize(false);
   }, []);
   const about = () => {
     router.push("#about");

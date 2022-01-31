@@ -22,7 +22,7 @@ function MorePersonalProjects() {
           }) => (
             <div
               key={img1}
-              className="border-4 opacity-80 hover:opacity-100 rounded drop-shadow-md cursor-pointer border-white transition-all transform duration-200 ease-in-out hover:scale-110  "
+              className="border-4 opacity-80 hover:opacity-100 rounded drop-shadow-md cursor-pointer border-white transition-all transform duration-200 ease-in-out hover:scale-110 bg-white "
             >
               <img
                 loading="lazy"

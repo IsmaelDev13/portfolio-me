@@ -1,9 +1,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 import { Graph, Notes, Web } from "../heroComponents";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// import audio from "../audio/src_audio_yesterday.mp3";
 
 export const Banner = () => {
+  const [playAudio, setPlayAudio] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | any>(null);
+
+  useEffect(() => {
+    if (playAudio) {
+      audioRef.current.play();
+    }
+  }, [playAudio]);
+
+  const toggleAudio = () => {
+    if (!playAudio) {
+      setPlayAudio(true);
+      setTimeout(() => {
+        setPlayAudio(false);
+      }, 2500);
+    } else {
+      setPlayAudio(false);
+    }
+  };
   return (
     <div
       id="about"
@@ -21,7 +43,7 @@ export const Banner = () => {
             src="/tanjiro.jpg"
             alt=""
           />
-          <div className="flex flex-col space-y-10 p-6">
+          <div className="flex flex-col space-y-5 p-6">
             <h1 className="text-[#0F97B8] font-black text-2xl uppercase tracking-tight text-opacity-70">
               Hello. THIS IS
               <br />
@@ -29,6 +51,22 @@ export const Banner = () => {
                 Ismael Diaz
               </span>
             </h1>
+            <div className="flex items-center">
+              <span className="flex text-gray-400 px-2">/ҽɾաìղ ʂʍìէհ/</span>
+              <audio ref={audioRef} src={require("../audio/erwin.mp3")}>
+                Erwin
+              </audio>
+              <img
+                onClick={toggleAudio}
+                className={`${
+                  playAudio
+                    ? "h-6 animate-bounce  transition-all transform duration-200 ease-out"
+                    : "h-5 active:scale-105 transition-all transform duration-200 ease-out cursor-pointer"
+                }`}
+                src="/speaker.svg"
+                alt=""
+              />
+            </div>
             <p className="font-sans tracking-wide mb-12">
               <span className="text-[#0F97B8] ">defn</span>. a male, who once
               happened to click on 'View Source' of a webpage with genuine
@@ -38,6 +76,11 @@ export const Banner = () => {
                 [more]
               </a>
             </p>
+            <Link href="#contact">
+              <button className="px-4 py-3 w-1/2 mx-auto md:w-1/4 md:mx-0 text-[#0F97B8] bg-[#EFF7FA] rounded-full font-medium">
+                Say "Hi"
+              </button>
+            </Link>
           </div>
         </div>
       </div>

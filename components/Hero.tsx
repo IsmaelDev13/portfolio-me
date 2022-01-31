@@ -37,7 +37,7 @@ export const Hero = () => {
     }
   };
   return (
-    <section className="flex items-start justify-evenly md:max-w-6xl md:mx-auto mt-28">
+    <section className="flex items-start justify-evenly md:max-w-7xl md:mx-auto mt-28">
       <div className="flex flex-col items-start">
         <span className="font-black stroke-4 px-6 mb-4 text-2xl  md:text-4xl uppercase leading-4 text-[#0F97B8] tracking-widest transform scale-y-90 relative select-none">
           Expand. Evolve. <i></i>
@@ -54,16 +54,17 @@ export const Hero = () => {
         {!submitted ? (
           <form onSubmit={sendEmail} className="flex items-center ml-6 ">
             <label>
-              <span className="md:text-lg md:inline text-[#0F97B8]">
+              <span className="md:text-lg md:inline  text-[#0F97B8]">
                 Know More about my process...
               </span>
               <div className="flex items-center">
                 <input
+                  required
                   ref={inputRef}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
-                  className="shadow border h-15 md:mb-7 border-[#0F97B8] rounded-l-md rounded-r drop-shadow-lg text-lg py-4 px-3 w-full outline-none"
+                  className="border h-15 md:mb-7 border-[#0F97B8] rounded-l-md rounded-r text-lg py-4 px-3 w-full outline-none focus:ring-[#0F97B8] focus:ring-1"
                   placeholder="Type your Email Address"
                 />
                 <span onClick={sendEmail}>
@@ -94,8 +95,8 @@ export const Hero = () => {
 
       <div className="hidden md:inline-flex ">
         <SvgHero
-          width={300}
-          height={300}
+          width={360}
+          height={360}
           className="hover:stroke-2 hover:stroke-[#0F97B8] transition-transform duration-200 ease-in-out"
         />
       </div>

@@ -5,22 +5,20 @@ interface PersonalProjectsProps {
   description: string;
   tech: string;
   image: string;
-  imagePhone: string;
   livePreview: string;
   code: string;
 }
 
-export const PersonalProjects: React.FC<PersonalProjectsProps> = ({
+export const PersonalProjects3: React.FC<PersonalProjectsProps> = ({
   title,
   description,
   tech,
   image,
-  imagePhone,
   livePreview,
   code,
 }) => {
   return (
-    <div className="flex flex-col my-20 lg:flex-row items-center max-w-7xl mx-auto pt-20 text-[#262f3d]">
+    <div className="lg:hidden flex flex-col my-20 lg:flex-row items-center max-w-7xl mx-auto pt-20 text-[#262f3d]">
       <div className="flex flex-col items-start lg:w-full space-y-4 px-6 pr-10">
         <h1 className="text-3xl font-serif tracking-widest text-[#262f3d] font-semibold">
           {title}
@@ -46,13 +44,13 @@ export const PersonalProjects: React.FC<PersonalProjectsProps> = ({
           </a>
         </div>
       </div>
-      <div className="relative mx-4 border-[8px] rounded-md shadow-sm my-5 shadow-[#0F97B8] border-[#0F97B8] ">
+      <div className="relative mx-4 border-4 rounded-md shadow-sm my-5 shadow-[#0F97B8] border-[#0F97B8] ">
         <img loading="lazy" className=" object-contain" src={image} alt="" />
         <div className="absolute top-10 md:right-32 border-4 border-t-8 border-b-8 rounded shadow-md shadow-[#262f3d] border-[#262f3d]">
           <img
             loading="lazy"
             className="w-24 md:w-44 h-full  object-contain"
-            src={imagePhone}
+            src="/amazon-mobile.jpg"
             alt=""
           />
         </div>
