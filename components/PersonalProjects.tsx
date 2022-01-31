@@ -20,38 +20,38 @@ export const PersonalProjects: React.FC<PersonalProjectsProps> = ({
   code,
 }) => {
   return (
-    <div className="flex flex-col my-20 lg:flex-row items-center max-w-7xl mx-auto pt-20 text-[#262f3d]">
-      <div className="flex flex-col items-start lg:w-full space-y-4 px-6 pr-10">
-        <h1 className="text-3xl font-serif tracking-widest text-[#262f3d] font-semibold">
+    <div className="my-20 mx-auto flex max-w-7xl flex-col items-center pt-20 text-[#262f3d] lg:flex-row">
+      <div className="flex flex-col items-start space-y-4 px-6 pr-10 lg:w-full">
+        <h1 className="font-serif text-3xl font-semibold tracking-widest text-[#262f3d]">
           {title}
         </h1>
-        <h3 className="text-lg tracking-wide font-sans">{description}</h3>
-        <h3 className="p-4 bg-white rounded-md text-lg font-sans  drop-shadow-md ">
+        <h3 className="font-sans text-lg tracking-wide">{description}</h3>
+        <h3 className="rounded-md bg-white p-4 font-sans text-lg  drop-shadow-md ">
           <span className="text-[#0F97B8]  ">Tech Stack:</span> {tech}
         </h3>
-        <div className="flex py-4 space-x-5">
+        <div className="flex space-x-5 py-4">
           <a target="_blank" rel="noreferrer" href={livePreview}>
             <input
-              className="flex items-center text-base space-x-2 transition-transform duration-200 ease-in-out bg-[#0F97B8] hover:shadow-blue-100 shadow-md cursor-pointer  hover:drop-shadow-xl px-6 py-2 rounded-full text-white font-sans uppercase"
+              className="flex cursor-pointer items-center space-x-2 rounded-full bg-[#0F97B8] px-6 py-2 font-sans text-base uppercase  text-white shadow-md transition-transform duration-200 ease-in-out hover:shadow-blue-100 hover:drop-shadow-xl"
               type="submit"
               value="Live Preview"
             />
           </a>
           <a target="_blank" rel="noreferrer" href={code}>
             <input
-              className="flex items-center text-base  uppercase space-x-2 transition-transform duration-200 ease-in-out text-[#0F97B8] cursor-pointer hover:bg-blue-100 px-6 py-2 rounded-full  font-sans"
+              className="flex cursor-pointer items-center  space-x-2 rounded-full px-6 py-2 font-sans text-base uppercase text-[#0F97B8] transition-transform duration-200 ease-in-out  hover:bg-blue-100"
               type="submit"
               value="View Code"
             />
           </a>
         </div>
       </div>
-      <div className="relative mx-4 border-[8px] rounded-md shadow-sm my-5 shadow-[#0F97B8] border-[#0F97B8] ">
+      <div className="relative mx-4 my-5 rounded-md border-[8px] border-[#0F97B8] shadow-sm shadow-[#0F97B8] ">
         <img loading="lazy" className=" object-contain" src={image} alt="" />
-        <div className="absolute top-10 md:right-32 border-4 border-t-8 border-b-8 rounded shadow-md shadow-[#262f3d] border-[#262f3d]">
+        <div className="absolute top-10 rounded border-4 border-t-8 border-b-8 border-[#262f3d] shadow-md shadow-[#262f3d] md:right-32">
           <img
             loading="lazy"
-            className="w-24 md:w-44 h-full  object-contain"
+            className="h-full w-24 object-contain  md:w-44"
             src={imagePhone}
             alt=""
           />

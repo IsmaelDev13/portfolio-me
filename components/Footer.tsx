@@ -5,17 +5,17 @@ import LinkedIn from "@mui/icons-material/LinkedIn";
 
 function Footer() {
   return (
-    <div className="max-w-6xl mx-auto py-20 flex flex-col md:flex-row items-center justify-between">
-      <div className="text-[#0F97B8] flex flex-col items-center">
+    <div className="mx-auto flex max-w-6xl flex-col items-center justify-between py-20 md:flex-row">
+      <div className="flex flex-col items-center text-[#0F97B8]">
         <div className="flex flex-col items-start">
-          <h1 className="font-bold stroke-4  text-2xl  md:text-3xl uppercase leading-4 text-[#0F97B8] tracking-wide transform  relative select-none">
+          <h1 className="stroke-4 relative  transform  select-none text-2xl font-bold uppercase leading-4 tracking-wide  text-[#0F97B8] md:text-3xl">
             Ismael Diaz
           </h1>
           <h2 className="text-lg">Front-End Developer</h2>
         </div>
-        <div className="flex items-center space-x-5 mt-5">
+        <div className="mt-5 flex items-center space-x-5">
           <a
-            className="pb-2 rounded-full border bg-white border-blue-50"
+            className="rounded-full border border-blue-50 bg-white pb-2"
             target="_blank"
             href="https://github.com/IsmaelDev13"
             rel="noreferrer"
@@ -23,7 +23,7 @@ function Footer() {
             <Github className="h-6 w-6 " />
           </a>
           <a
-            className="pb-2 rounded-full border bg-white border-blue-50"
+            className="rounded-full border border-blue-50 bg-white pb-2"
             target="_blank"
             href="https://www.facebook.com/people/Ismael-Diaz/100070763821353/"
             rel="noreferrer"
@@ -31,7 +31,7 @@ function Footer() {
             <Facebook className="h-6 w-6" />
           </a>
           <a
-            className="pb-2 rounded-full border bg-white border-blue-50"
+            className="rounded-full border border-blue-50 bg-white pb-2"
             target="_blank"
             href="https://www.linkedin.com/in/ismaeldev13/"
             rel="noreferrer"
@@ -40,7 +40,7 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div className="flex flex-col  pt-5 items-center text-lg md:items-end text-[#0F97B8] space-y-1 font-['Work Sans'] tracking-wide ">
+      <div className="font-['Work Sans']  flex flex-col items-center space-y-1 pt-5 text-lg tracking-wide text-[#0F97B8] md:items-end ">
         <p>Malaga, Spain</p>
         <p>ismaeldev13@gmail.com</p>
         <p>Copyright &copy;2022 </p>

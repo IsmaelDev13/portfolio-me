@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
       <Header />
       <main
-        className="md:max-w-7xl mx-auto"
+        className="mx-auto md:max-w-7xl"
         style={{ scrollBehavior: "smooth" }}
       >
         <Hero />

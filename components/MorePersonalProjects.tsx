@@ -4,7 +4,7 @@ import { projectsImages } from "../projectsImages";
 function MorePersonalProjects() {
   return (
     <div className="p-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
         {projectsImages.map(
           ({
             img1,
@@ -22,7 +22,7 @@ function MorePersonalProjects() {
           }) => (
             <div
               key={img1}
-              className="border-4 opacity-80 hover:opacity-100 rounded drop-shadow-md cursor-pointer border-white transition-all transform duration-200 ease-in-out hover:scale-110 bg-white "
+              className="transform cursor-pointer rounded border-4 border-white bg-white opacity-80 drop-shadow-md transition-all duration-200 ease-in-out hover:scale-110 hover:opacity-100 "
             >
               <img
                 loading="lazy"

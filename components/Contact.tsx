@@ -43,33 +43,33 @@ function Contact() {
   return (
     <div
       id="contact"
-      className="relative max-w-7xl mx-auto mt-28 rounded-md shadow-lg shadow-blue-100 bg-white lg:p-20"
+      className="relative mx-auto mt-28 max-w-7xl rounded-md bg-white shadow-lg shadow-blue-100 lg:p-20"
     >
       {/* Left Part */}
       <div className="pt-10 pl-6">
-        <h1 className="font-bold stroke-4 mb-4 text-2xl  md:text-3xl uppercase leading-4 text-[#0F97B8] tracking-widest transform  relative select-none">
+        <h1 className="stroke-4 relative mb-4 transform  select-none text-2xl font-bold uppercase leading-4 tracking-widest  text-[#0F97B8] md:text-3xl">
           Let's talk business!
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-between">
-        <div className="flex flex-col w-full md:w-1/2 items-start space-y-3">
+      <div className="flex flex-col items-center justify-between md:flex-row">
+        <div className="flex w-full flex-col items-start space-y-3 md:w-1/2">
           <img className="object-contain p-5" src="/contact.svg" alt="" />
-          <p className="tracking-wide text-lg font-sans whitespace-pre-line p-5">
+          <p className="whitespace-pre-line p-5 font-sans text-lg tracking-wide">
             Have a startling idea, but don't know where to begin? Now is the
             time to put all those crazy ideas into action.
           </p>
-          <h3 className="font-sans drop-shadow-sm text-2xl font-medium p-5">
+          <h3 className="p-5 font-sans text-2xl font-medium drop-shadow-sm">
             Let's make it work.
           </h3>
           <a href="mailto:ismaeldev13@gmail.com">
-            <h2 className="text-[#0F97B8] font-sans text-3xl px-5">
+            <h2 className="px-5 font-sans text-3xl text-[#0F97B8]">
               ismaeldev13@gmail.com
             </h2>
           </a>
         </div>
         {/* Right Part */}
-        <div className="w-full md:w-1/2 flex flex-col pt-20 ">
-          <h1 className="font-sans drop-shadow-lg text-2xl font-medium pl-5">
+        <div className="flex w-full flex-col pt-20 md:w-1/2 ">
+          <h1 className="pl-5 font-sans text-2xl font-medium drop-shadow-lg">
             {!submitted
               ? "I'd love to hear from you"
               : "I'm glad we will work together!"}
@@ -80,9 +80,9 @@ function Contact() {
               animate="in"
               exit="out"
               variants={errorAnim}
-              className="flex flex-col rounded border shadow p-10 my-10 bg-[#0F97B8] text-white max-w-2xl mx-auto"
+              className="my-10 mx-auto flex max-w-2xl flex-col rounded border bg-[#0F97B8] p-10 text-white shadow"
             >
-              <h3 className="text-center text-2xl font-semibold font-serif">
+              <h3 className="text-center font-serif text-2xl font-semibold">
                 Thank you for submitting your comment!
               </h3>
             </motion.div>
@@ -91,11 +91,11 @@ function Contact() {
               onSubmit={handleSubmit(onSubmit)}
               className="flex flex-col p-5 "
             >
-              <label className="block mb-5">
-                <span className="hidden md:inline text-gray-700">Name</span>
+              <label className="mb-5 block">
+                <span className="hidden text-gray-700 md:inline">Name</span>
                 <input
                   {...register("name", { required: true })}
-                  className="shadow border border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none text-lg"
+                  className="form-textarea mt-1 block w-full rounded border border-[#0F97B8] py-4 px-3 text-lg shadow outline-none"
                   placeholder="Name"
                   type="text"
                 />
@@ -103,11 +103,11 @@ function Contact() {
                   <span className="text-red-500">- Please enter your name</span>
                 )}
               </label>
-              <label className="block mb-5">
-                <span className="hidden md:inline text-gray-700">Email</span>
+              <label className="mb-5 block">
+                <span className="hidden text-gray-700 md:inline">Email</span>
                 <input
                   {...register("email", { required: true })}
-                  className="shadow border text-lg border-[#0F97B8] rounded py-4 px-3 form-textarea mt-1 block w-full outline-none"
+                  className="form-textarea mt-1 block w-full rounded border border-[#0F97B8] py-4 px-3 text-lg shadow outline-none"
                   placeholder="Email Address"
                   type="email"
                 />
@@ -117,11 +117,11 @@ function Contact() {
                   </span>
                 )}
               </label>
-              <label className="block mb-5">
-                <span className="hidden md:inline text-gray-700">Message</span>
+              <label className="mb-5 block">
+                <span className="hidden text-gray-700 md:inline">Message</span>
                 <textarea
                   {...register("comment", { required: true })}
-                  className="shadow border border-[#0F97B8] rounded text-lg py-4 px-3 form-textarea mt-1 block w-full outline-none"
+                  className="form-textarea mt-1 block w-full rounded border border-[#0F97B8] py-4 px-3 text-lg shadow outline-none"
                   placeholder="Write your message..."
                   rows={8}
                 />
@@ -135,7 +135,7 @@ function Contact() {
               <input
                 type="submit"
                 value={`${!submitted ? "Send Message" : "Message Sent"}`}
-                className="shadow bg-[#0F97B8] w-1/2 md:w-full text-lg mx-auto transition transform duration-200 ease-in-out hover:shadow-xl focus:shadow-outline focus:outline-none text-white font-semibold py-4 drop-shadow-md rounded-full uppercase cursor-pointer mb-20"
+                className="focus:shadow-outline mx-auto mb-20 w-1/2 transform cursor-pointer rounded-full bg-[#0F97B8] py-4 text-lg font-semibold uppercase text-white shadow drop-shadow-md transition duration-200 ease-in-out hover:shadow-xl focus:outline-none md:w-full"
               />
             </form>
           )}
@@ -143,7 +143,7 @@ function Contact() {
       </div>
       <a
         href="#"
-        className="absolute transition transform duration-200 ease-in-out rounded-full -bottom-6  md:-bottom-4 bg-[#eff7fa] hover:translate-y-2 right-[43%] md:right-1/2  hover:bg-blue-100  p-4"
+        className="absolute -bottom-6 right-[43%] transform rounded-full bg-[#eff7fa] p-4  transition duration-200 ease-in-out hover:translate-y-2 hover:bg-blue-100  md:-bottom-4  md:right-1/2"
       >
         <ArrowUpIcon />
       </a>

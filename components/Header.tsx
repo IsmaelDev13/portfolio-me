@@ -18,7 +18,7 @@ export const Header = () => {
     } else {
       setWindowSize(false);
     }
-  }, []);
+  }, [window]);
   const about = () => {
     router.push("#about");
   };
@@ -34,36 +34,36 @@ export const Header = () => {
     { icon: <ContactIcon />, name: "Contact", func: contact },
   ];
   return (
-    <header className="flex items-center justify-between  p-5 md:max-w-7xl mx-auto font-['Work Sans'] text-[18px]">
+    <header className="font-['Work Sans'] mx-auto  flex items-center justify-between p-5 text-[18px] md:max-w-7xl">
       <div className="flex items-center space-x-5">
         <Link href="/">
           <img
-            className="h-32 md:h-40 w-full object-contain "
+            className="h-32 w-full object-contain md:h-40 "
             src="/logo.png"
             alt=""
           />
         </Link>
       </div>
-      <div className="hidden md:inline-flex items-center space-x-10 ">
+      <div className="hidden items-center space-x-10 md:inline-flex ">
         <Link href="#about">
-          <h3 className="hover:text-[#0F97B8] cursor-pointer transition-all transform duration-200 ease-linear divide-x-2 hover:border-separate hover:border-cyan-400 border-b-2 p-2 hover:drop-shadow ">
+          <h3 className="transform cursor-pointer divide-x-2 border-b-2 p-2 transition-all duration-200 ease-linear hover:border-separate hover:border-cyan-400 hover:text-[#0F97B8] hover:drop-shadow ">
             About
           </h3>
         </Link>
         <Link href="#work">
-          <h3 className="hover:text-[#0F97B8] cursor-pointer transition-all transform duration-200 ease-linear divide-x-2 hover:border-separate border-b-2 hover:border-cyan-400 hover:drop-shadow   p-2">
+          <h3 className="transform cursor-pointer divide-x-2 border-b-2 p-2 transition-all duration-200 ease-linear hover:border-separate hover:border-cyan-400 hover:text-[#0F97B8]   hover:drop-shadow">
             Work
           </h3>
         </Link>
         <Link href="#contact">
-          <h3 className="px-4 py-1 rounded-full  bg-[#0F97B8] text-white cursor-pointer shadow-cyan-400 shadow-sm hover:shadow-md transition-all transform duration-200 ease-in-out">
+          <h3 className="transform cursor-pointer rounded-full  bg-[#0F97B8] px-4 py-1 text-white shadow-sm shadow-cyan-400 transition-all duration-200 ease-in-out hover:shadow-md">
             Contact
           </h3>
         </Link>
       </div>
       <SpeedDial
         ariaLabel="SpeedDial"
-        className="sm:hidden fixed top-10 right-4 "
+        className="fixed top-10 right-4 md:hidden "
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
@@ -71,7 +71,7 @@ export const Header = () => {
         icon={
           <img
             src="/android-chrome-512x512.png "
-            className="rounded-full w-full h-[56px]"
+            className="h-[56px] w-full rounded-full"
           />
         }
       >
