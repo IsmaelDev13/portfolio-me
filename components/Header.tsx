@@ -10,15 +10,7 @@ import { useRouter } from "next/router";
 export const Header = () => {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  const [windowSize, setWindowSize] = useState(false);
 
-  useEffect(() => {
-    if (window.innerWidth <= 600) {
-      setWindowSize(true);
-    } else {
-      setWindowSize(false);
-    }
-  }, [window]);
   const about = () => {
     router.push("#about");
   };
@@ -81,7 +73,7 @@ export const Header = () => {
             icon={item.icon}
             tooltipTitle={item.name}
             onClick={item.func}
-            tooltipOpen={windowSize}
+            tooltipOpen={true}
           />
         ))}
       </SpeedDial>
