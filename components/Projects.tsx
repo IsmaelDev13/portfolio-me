@@ -56,7 +56,7 @@ export const Projects = () => {
               <PersonalProjects
                 title="MetaShop"
                 description=" A ecommerce with a modern UI, complete functionality including Payment Processing(Stripe API) and full backend with MongoDB."
-                tech="React (NextJS), Typescript, MongoDB, Postman, Stripe API, TailwindCSS, Heroku, Github Actions."
+                tech="React (NextJS), Typescript, MongoDB, Postman, Stripe API, TailwindCSS, Heroku, Cypress, Github Actions."
                 image="/metashop.jpg"
                 imagePhone="/meta-mobile.jpg"
                 livePreview="https://meta-shop.herokuapp.com/"

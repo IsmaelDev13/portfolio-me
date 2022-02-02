@@ -33,16 +33,24 @@ export const Banner = () => {
     >
       {/* Who Am I */}
       <div className="flex flex-col  ">
-        <h1 className="stroke-4 relative mb-4 scale-y-90 transform select-none  pl-8 pt-20 text-2xl font-bold uppercase leading-4 tracking-widest text-[#0F97B8] md:text-3xl">
+        <h1 className="stroke-4 relative mb-4 scale-y-90 transform select-none pl-8 pt-20 text-2xl font-bold uppercase leading-4 tracking-widest text-[#0F97B8] md:text-3xl">
           Who Am I?
         </h1>
-        <div className="items-center md:flex md:flex-row">
-          <img
-            loading="lazy"
-            className="my-10 mx-auto h-96 w-full object-contain"
-            src="/tanjiro.jpg"
-            alt=""
-          />
+        <div className="group  items-center md:flex md:flex-row">
+          <div className="relative w-full">
+            <img
+              loading="lazy"
+              className=" relative my-10 mx-auto h-96 w-full rounded-full object-contain transition-transform duration-200 ease-in-out group-hover:scale-0 "
+              src="/sharpenpro.jpg"
+              alt=""
+            />
+            <img
+              loading="lazy"
+              className=" absolute top-0 my-10 mx-auto h-96  w-full scale-0 transform rounded-full object-contain transition-transform duration-150 ease-in  group-hover:scale-100"
+              src="/nobgfiread.png"
+              alt=""
+            />
+          </div>
           <div className="flex flex-col space-y-5 p-6">
             <h1 className="text-2xl font-black uppercase tracking-tight text-[#0F97B8] text-opacity-70">
               Hello. THIS IS
